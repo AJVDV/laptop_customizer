@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PartItem from '../partItem/partItem';
 
 
+const features = {FEATURE}
+
 export default class PartsList extends Component {
 
     render() {
@@ -19,12 +21,15 @@ export default class PartsList extends Component {
             });
 
             return (
-                <fieldset className="feature" key={featureHash}>
-                    <legend className="feature__name">
-                        <h3>{feature}</h3>
-                    </legend>
-                    {options}
-                </fieldset>
+                <form className="main__form">
+                    <h2>Customize your laptop</h2>
+                    <fieldset className="feature" key={featureHash}>
+                        <legend className="feature__name">
+                            <h3>{feature}</h3>
+                        </legend>
+                        {options}
+                    </fieldset>
+                </form>
             );
         });
     }

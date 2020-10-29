@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import PartsList from './partsList/partsList'
-import CartList from './cartList/cartList'
+import PartsList from './partsList/partsList';
+import CartList from './cartList/cartList';
+import FEATURE from './Features/FEATURES';
 
 
 
@@ -27,6 +28,7 @@ class App extends Component {
     }
   };
 
+  
 
   updateFeature(feature, newValue) {
     const selected = Object.assign({}, this.state.selected);
@@ -36,37 +38,22 @@ class App extends Component {
     });
   }
 
-  renderFeatures() {
-    return (<PartsList
-      features={this.props.features}
-      selected={this.state.selected}
-      updateFeature={(feature, newItem) => this.updateFeature(feature, newItem)}
-    />);
-  }
-
-  renderSummaryList() {
-    return (
-      <section className="main__summary">
-        <h2>Your cart</h2>
-        <CartList
-          selected={this.state.selected}
-        />
-      </section>
-    )
-  }
-
   render() {
+    const features={FEATURE}
     return (
       <div className="App">
         <header>
           <h1>ELF Computing | Laptops</h1>
         </header>
         <main>
-          <form className="main__form">
-            <h2>Customize your laptop</h2>
-            {this.renderFeatures()}
-          </form>
-          {this.renderSummaryList()}
+          <PartsList
+            features={this.props.features}
+            selected={this.state.selected}
+            updateFeature={(feature, newItem) => this.updateFeature(feature, newItem)}
+          />
+          <CartList
+            selected={this.state.selected}
+          />
         </main>
       </div>
     );
