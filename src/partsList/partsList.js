@@ -7,9 +7,11 @@ import STORE from '../Features/FEATURES';
 export default class PartsList extends Component {
 
     render() {
+        let featureHash;
+        let options;
         const features = Object.keys(STORE).map((feature, idx) => {
-            const featureHash = feature + `-` + idx;
-            const options = STORE[feature].map(item => {
+            featureHash = feature + `-` + idx;
+            options = STORE[feature].map(item => {
                 return (
                     <PartItem
                         item={item}
@@ -19,18 +21,17 @@ export default class PartsList extends Component {
                     />                    
                 );
             });
-
-            return (
-                <form className="main__form">
-                    <h2>Customize your laptop</h2>
-                    <fieldset className="feature" key={featureHash}>
-                        <legend className="feature__name">
-                            <h3>{features}</h3>
-                        </legend>
-                        {options}
-                    </fieldset>
-                </form>
-            );
         });
+        return (
+            <form className="main__form">
+                <h2>Customize your laptop</h2>
+                <fieldset className="feature" key={featureHash}>
+                    <legend className="feature__name">
+                        <h3>{features}</h3>
+                    </legend>
+                    {options}
+                </fieldset>
+            </form>
+        );
     }
 }
