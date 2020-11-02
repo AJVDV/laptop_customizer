@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import PartsList from './partsList/partsList';
 import CartList from './cartList/cartList';
-import FEATURE from './Features/FEATURES';
+import STORE from './Features/FEATURES';
 
 
 
@@ -39,7 +39,8 @@ class App extends Component {
   }
 
   render() {
-    const features={FEATURE}
+    const features={STORE}
+    console.log(features);
     return (
       <div className="App">
         <header>
@@ -47,7 +48,7 @@ class App extends Component {
         </header>
         <main>
           <PartsList
-            features={this.props.features}
+            features={features}
             selected={this.state.selected}
             updateFeature={(feature, newItem) => this.updateFeature(feature, newItem)}
           />
