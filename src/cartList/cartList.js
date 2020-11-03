@@ -25,26 +25,24 @@ export default class CartList extends Component {
             const selectedOption = this.props.selected[feature];
 
             return (
-                <section className="main__summary">
-                    <h2>Your cart</h2>
-                    <div className="summary__option" key={featureHash}>
-                        <div className="summary__option__label">{feature} </div>
-                        <div className="summary__option__value">{selectedOption.name}</div>
-                        <div className="summary__option__cost">
-                            {USCurrencyFormat.format(selectedOption.cost)}
-                        </div>
+                <div className="summary__option" key={featureHash}>
+                    <div className="summary__option__label">{feature} </div>
+                    <div className="summary__option__value">{selectedOption.name}</div>
+                    <div className="summary__option__cost">
+                        {USCurrencyFormat.format(selectedOption.cost)}
                     </div>
-                </section>
+                </div>
             );
 
         });
 
         return (
-            <div>
+            <section className="main__summary">
+                <h2>Your cart</h2>
                 {items}
                 <br />
                 {this.renderTotal()}
-            </div>
+            </section>
 
         );
 

@@ -39,8 +39,6 @@ class App extends Component {
   }
 
   render() {
-    const features={STORE}
-    console.log(features);
     return (
       <div className="App">
         <header>
@@ -48,7 +46,7 @@ class App extends Component {
         </header>
         <main>
           <PartsList
-            features={features}
+            features={STORE}
             selected={this.state.selected}
             updateFeature={(feature, newItem) => this.updateFeature(feature, newItem)}
           />
