@@ -28,6 +28,7 @@ export default class CartList extends Component {
 
             return (
                 <CartItem 
+                    key={featureHash}
                     featureHash={featureHash}
                     name={feature}
                     description={selectedOption.name}
