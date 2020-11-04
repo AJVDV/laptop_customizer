@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import PartsList from './partsList/partsList';
-import CartList from './cartList/cartList';
+import PartsList from './partsList/PartsList';
+import CartList from './cartList/CartList';
 import STORE from './Features/FEATURES';
 
 

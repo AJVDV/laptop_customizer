@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import TotalPrice from '../totalPrice/totalPrice';
+import TotalPrice from '../totalPrice/TotalPrice';
+import CartItem from '../cartItem/CartItem';
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -10,7 +11,7 @@ export default class CartList extends Component {
 
     renderTotal() {
         return (
-            <section className="main__summary">
+            <section className="summary__total">
                 <TotalPrice
                     selected={this.props.selected}
                 />
@@ -20,26 +21,26 @@ export default class CartList extends Component {
     }
 
     render() {
+        
         const items = Object.keys(this.props.selected).map((feature, idx) => {
             const featureHash = feature + '-' + idx;
             const selectedOption = this.props.selected[feature];
 
             return (
-                <div className="summary__option" key={featureHash}>
-                    <div className="summary__option__label">{feature} </div>
-                    <div className="summary__option__value">{selectedOption.name}</div>
-                    <div className="summary__option__cost">
-                        {USCurrencyFormat.format(selectedOption.cost)}
-                    </div>
-                </div>
+                <CartItem 
+                    featureHash={featureHash}
+                    name={feature}
+                    description={selectedOption.name}
+                    cost={USCurrencyFormat.format(selectedOption.cost)}
+                />
             );
 
         });
-
+        
         return (
             <section className="main__summary">
                 <h2>Your cart</h2>
-                {items}
+                    {items}
                 <br />
                 {this.renderTotal()}
             </section>
